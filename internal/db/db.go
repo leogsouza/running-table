@@ -21,3 +21,13 @@ func New() Database {
 	contents := make([]Record, 0)
 	return Database{contents}
 }
+
+// AddRecord add a record into database contents
+func (database *Database) AddRecord(r Record) {
+	database.contents = append(database.contents, r)
+}
+
+// GetRecords returns all records from database
+func (database *Database) GetRecords() []Record {
+	return database.contents
+}
