@@ -3,13 +3,15 @@ package webapp
 import (
 	"net/http"
 
+	"github.com/leogsouza/running-table/internal/notifier"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/leogsouza/running-table/internal/db"
 )
 
 // StartServer Creates and run the web server
-func StartServer(database *db.Database) {
+func StartServer(database *db.Database, notifierClient *notifier.Notifier) {
 	r := gin.Default()
 	r.Use(cors.Default())
 	r.GET("/results", func(c *gin.Context) {
@@ -23,6 +25,7 @@ func StartServer(database *db.Database) {
 		if err := c.BindJSON(&json); err == nil {
 			database.AddRecord(json)
 			c.JSON(http.StatusCreated, json)
+			notifierClient.Notify()
 		} else {
 			c.JSON(http.StatusBadRequest, gin.H{})
 		}

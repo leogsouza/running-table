@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/caarlos0/env"
+  packages = ["."]
+  revision = "1cddc31c48c56ecd700d873edb9fd5b6f5df922a"
+  version = "v3.3.0"
+
+[[projects]]
   name = "github.com/gin-contrib/cors"
   packages = ["."]
   revision = "cf4846e6a636a76237a28d9286f163c132e841bc"
@@ -55,10 +61,27 @@
   version = "1.0.1"
 
 [[projects]]
+  name = "github.com/pusher/pusher-http-go"
+  packages = ["."]
+  revision = "412688bb3aba082ba848395e80f3acf7e735af7d"
+  version = "v1.3.0"
+
+[[projects]]
   name = "github.com/ugorji/go"
   packages = ["codec"]
   revision = "b4c50a2b199d93b13dc15e78929cfb23bfdf21ab"
   version = "v1.1.1"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = [
+    "internal/subtle",
+    "nacl/secretbox",
+    "poly1305",
+    "salsa20/salsa"
+  ]
+  revision = "0709b304e793a5edb4a2c0145f281ecdc20838a4"
 
 [[projects]]
   branch = "master"
@@ -81,6 +104,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d566193deda6893d9e71a11b6c74422f8d3124a679ecb40a9f5ca517ccfe85dd"
+  inputs-digest = "9ff3c210bdf4236d85f9066b10105361bd2aa4eaa1869ab72331d6b8a8c85f48"
   solver-name = "gps-cdcl"
   solver-version = 1
