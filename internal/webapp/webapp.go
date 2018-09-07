@@ -8,6 +8,7 @@ import (
 	"github.com/leogsouza/running-table/internal/db"
 )
 
+// StartServer Creates and run the web server
 func StartServer(database *db.Database) {
 	r := gin.Default()
 	r.Use(cors.Default())
