@@ -1,5 +1,11 @@
 import React from 'react';
 import ResultsTable from './ResultsTable';
+import Pusher from 'pusher-js';
+
+const socket = new Pusher('ce62ea44549ce3be69ef', {
+  cluster: 'us2',
+  encrypted: true
+});
 
 export default class ConnectedResultsTable extends React.Component {
   state = { 
@@ -14,6 +20,11 @@ export default class ConnectedResultsTable extends React.Component {
       }
       const json = await response.json();
       this.setState(json);
+
+      const channel = socket.subscribe('results');
+      channel.bind('results', (data) => {
+        this.setState(data);
+      })
     } catch (error) {
        console.log(error);
     }
