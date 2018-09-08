@@ -1,8 +1,6 @@
 package notifier
 
 import (
-	"fmt"
-
 	"github.com/caarlos0/env"
 	"github.com/leogsouza/running-table/internal/config"
 	"github.com/leogsouza/running-table/internal/db"
@@ -22,7 +20,7 @@ func notifier(database *db.Database, notifyChannel <-chan bool) {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	client := pusher.Client{
 		AppId:   cfg.AppId,
 		Key:     cfg.Key,
@@ -38,7 +36,7 @@ func notifier(database *db.Database, notifyChannel <-chan bool) {
 	}
 }
 
-// Notifier creates a new notifier
+// New creates a new notifier
 func New(database *db.Database) Notifier {
 	notifyChannel := make(chan bool)
 	go notifier(database, notifyChannel)
