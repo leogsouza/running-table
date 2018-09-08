@@ -22,8 +22,7 @@ func notifier(database *db.Database, notifyChannel <-chan bool) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%+v\n", cfg)
-
+	
 	client := pusher.Client{
 		AppId:   cfg.AppId,
 		Key:     cfg.Key,
